@@ -15,6 +15,8 @@ namespace Task1_2
         private int width;
         private int height;
         private Color myColor;
+        int x_rec = 50;
+        int y_rec = 50;
 
         public Form1()
         {
@@ -28,7 +30,7 @@ namespace Task1_2
         {
             Graphics dc = e.Graphics;
             Pen myPen = new Pen(myColor);
-            dc.DrawRectangle(myPen, 50, 50, width, height);
+            dc.DrawRectangle(myPen, x_rec, y_rec, width, height);
         }
 
         private void largeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,7 +74,8 @@ namespace Task1_2
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             Point myPoint = new Point(e.X, e.Y);
-            if (e.Button == MouseButtons.Right)
+            if ((e.Button == MouseButtons.Right)
+                && (x_rec <= e.X) & (e.X <= x_rec + width) & (y_rec <= e.Y) & (e.Y <= y_rec + height))
                 contextMenuStrip1.Show(this, myPoint);
         }
 
