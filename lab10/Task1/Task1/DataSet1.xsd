@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Order" msprop:Generator_TableClassName="OrderDataTable" msprop:Generator_TableVarName="tableOrder" msprop:Generator_TablePropName="Order" msprop:Generator_RowDeletingName="OrderRowDeleting" msprop:Generator_RowChangingName="OrderRowChanging" msprop:Generator_RowEvHandlerName="OrderRowChangeEventHandler" msprop:Generator_RowDeletedName="OrderRowDeleted" msprop:Generator_UserTableName="Order" msprop:Generator_RowChangedName="OrderRowChanged" msprop:Generator_RowEvArgName="OrderRowChangeEvent" msprop:Generator_RowClassName="OrderRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="OrderID" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnOrderID" msprop:Generator_ColumnPropNameInRow="OrderID" msprop:Generator_ColumnPropNameInTable="OrderIDColumn" msprop:Generator_UserColumnName="OrderID" type="xs:int" minOccurs="0" />
+              <xs:element name="Amount" msdata:ReadOnly="true" msdata:Expression="Sum(Child(Order_OrderLines).Total)" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OrderLines" msprop:Generator_TableClassName="OrderLinesDataTable" msprop:Generator_TableVarName="tableOrderLines" msprop:Generator_TablePropName="OrderLines" msprop:Generator_RowDeletingName="OrderLinesRowDeleting" msprop:Generator_RowChangingName="OrderLinesRowChanging" msprop:Generator_RowEvHandlerName="OrderLinesRowChangeEventHandler" msprop:Generator_RowDeletedName="OrderLinesRowDeleted" msprop:Generator_UserTableName="OrderLines" msprop:Generator_RowChangedName="OrderLinesRowChanged" msprop:Generator_RowEvArgName="OrderLinesRowChangeEvent" msprop:Generator_RowClassName="OrderLinesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="OrderLinesID" msprop:Generator_ColumnVarNameInTable="columnOrderLinesID" msprop:Generator_ColumnPropNameInRow="OrderLinesID" msprop:Generator_ColumnPropNameInTable="OrderLinesIDColumn" msprop:Generator_UserColumnName="OrderLinesID" type="xs:int" minOccurs="0" />
+              <xs:element name="OrderID" msprop:Generator_ColumnVarNameInTable="columnOrderID" msprop:Generator_ColumnPropNameInRow="OrderID" msprop:Generator_ColumnPropNameInTable="OrderIDColumn" msprop:Generator_UserColumnName="OrderID" type="xs:int" minOccurs="0" />
+              <xs:element name="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_UserColumnName="Price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_UserColumnName="Quantity" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msdata:ReadOnly="true" msdata:Expression="Price * Quantity" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="OrderKey1">
+      <xs:selector xpath=".//mstns:Order" />
+      <xs:field xpath="mstns:OrderID" />
+    </xs:unique>
+    <xs:unique name="OrderLinesKey1">
+      <xs:selector xpath=".//mstns:OrderLines" />
+      <xs:field xpath="mstns:OrderLinesID" />
+    </xs:unique>
+    <xs:unique name="OrderLinesKey2">
+      <xs:selector xpath=".//mstns:OrderLines" />
+      <xs:field xpath="mstns:OrderID" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="Order_OrderLines" msdata:parent="Order" msdata:child="OrderLines" msdata:parentkey="OrderID" msdata:childkey="OrderID" msprop:Generator_UserChildTable="OrderLines" msprop:Generator_ChildPropName="GetOrderLinesRows" msprop:Generator_UserRelationName="Order_OrderLines" msprop:Generator_ParentPropName="OrderRow" msprop:Generator_RelationVarName="relationOrder_OrderLines" msprop:Generator_UserParentTable="Order" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

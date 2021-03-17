@@ -50,15 +50,33 @@ namespace Task1
             row["Name"] = "Third teacher";
             Table1.Rows.Add(row);
 
+            row = Table1.NewRow();
+            row["Name"] = "aa";
+            Table1.Rows.Add(row);
+
             dataGridView1.DataSource = Table1;
             dataGridView1.Columns[1].Width = 200;
-/*
-            dataGridView2.DataSource = ds;
-            dataGridView2.DataMember = "Order";
+        }
 
-            dataGridView3.DataSource = ds;
-            dataGridView3.DataMember = "OrderLines";
-*/
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataTable t = new DataTable();
+            t = (DataTable)dataGridView1.DataSource;
+            MessageBox.Show(t.Rows[dataGridView1.CurrentCell.RowIndex][dataGridView1.CurrentCell.ColumnIndex].ToString());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DataView dataView = new DataView((DataTable)dataGridView1.DataSource);
+            dataView.Sort = textBox1.Text;
+            dataGridView1.DataSource = dataView;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DataView dataView = new DataView((DataTable)dataGridView1.DataSource);
+            dataView.RowFilter = textBox2.Text;
+            dataGridView1.DataSource = dataView;
         }
     }
 }
